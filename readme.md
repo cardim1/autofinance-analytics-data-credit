@@ -12,16 +12,17 @@ Este projeto simula o core de uma operação de dados de uma fintech de financia
 
 
 [ Script Python + Boto3 ]
-                     │
-                     ▼
-         [ AWS S3 - Camada Raw / CSV ]
-         ├── raw/dados_fipe/
-         └── raw/dados_credito/
-                     │
-                     ▼
-             [ AWS Athena / SQL ]
-                     │
-         (View Analítica + Regras de Risco)
+           │
+           ▼
+[ AWS S3 - Camada Raw / CSV ]
+├── raw/dados_fipe/
+└── raw/dados_credito/
+           │
+           ▼
+[ AWS Athena / SQL ]
+           │
+           ▼
+(View Analítica + Regras de Risco)
 
 
 ## 🚀 Como Funciona o Pipeline
