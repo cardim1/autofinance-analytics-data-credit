@@ -11,18 +11,25 @@ Este projeto simula o core de uma operação de dados de uma fintech de financia
 * **Modelagem e Lógica de Negócio:** SQL Avançado
 
 
-[ Script Python + Boto3 ]
-           │
-           ▼
-[ AWS S3 - Camada Raw / CSV ]
-├── raw/dados_fipe/
-└── raw/dados_credito/
-           │
-           ▼
-[ AWS Athena / SQL ]
-           │
-           ▼
-(View Analítica + Regras de Risco)
+graph TD
+    A[Script Python + Boto3] --> B[AWS S3: Camada Raw / CSV]
+    
+    subgraph S3 [Diretórios no Data Lake]
+        B --> B1[(raw/dados_fipe/)]
+        B --> B2[(raw/dados_credito/)]
+    end
+    
+    B1 --> C[AWS Athena / SQL]
+    B2 --> C
+    C --> D[(View Analítica + Regras de Risco)]
+
+    %% Estilização para ficar bonito no tema escuro/claro
+    style A fill:#232F3E,stroke:#FF9900,stroke-width:2px,color:#fff
+    style B fill:#232F3E,stroke:#FF9900,stroke-width:2px,color:#fff
+    style C fill:#232F3E,stroke:#FF9900,stroke-width:2px,color:#fff
+    style D fill:#111,stroke:#333,stroke-width:1px,color:#fff
+    style B1 fill:#3b4b5c,stroke:#fff,color:#fff
+    style B2 fill:#3b4b5c,stroke:#fff,color:#fff
 
 
 ## 🚀 Como Funciona o Pipeline
